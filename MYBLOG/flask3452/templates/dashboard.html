@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+
+{% block all %}
+
+<h3>KONTROL PANELİ </h3>
+<small>Hoşgeldin  {{session["username"]}}</small>     <!--Ekrana kim girdiyse hoşgeldin ve ismini yazıyor session sayesinde-->
+<hr>
+
+<a href = "/addarticle" class = "btn btn-danger">Makale Ekle</a>
+<hr>
+{% if  articles %}
+<table class="table table-white">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">title</th>
+        <th scope="col">author</th>
+        <th scope="col">date</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for article in articles  %}
+      <tr>
+        <th scope = "row" >{{article.id}}</th>
+        <td><a href= "/article/{{article.id}}">{{article.title}}</td>
+        <td>{{article.author}}</td>
+        <td>{{article.created_date}}<td>
+        <td><a href = "/editarticle/{{article.id}}" class = "btn btn-success">Güncelle<td>
+        <td><a href = "/deletearticle/{{article.id}}" class = "btn btn-danger">Sil<td>
+      
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+<div class = "alert alert-danger">Henüz makaleniz bulunmuyor </div>
+{% endif %}
+
+
+{% endblock  %}

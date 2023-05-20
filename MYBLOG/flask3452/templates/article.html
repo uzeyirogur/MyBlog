@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+
+{% block all %}
+
+{% if article %}
+<h4>{{article.title}}</h4>
+<hr>
+<i>Yazar : {{article.author}}</i>
+<hr>
+Tarih : {{article.created_date}}
+<hr>
+{{article.content|safe}}                               <!--ck editörle yazılanlar sadece article.content yazarsak html içeriğini yazdırıyor fakat bu şekilde istedğimiz gibi yazıyor-->
+{% else %}
+<div class = "alert alert-warning">Böyle bir makale bulunmuyor</div>
+{% endif %}
+{% endblock  %}

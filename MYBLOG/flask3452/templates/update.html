@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block all %}
+<h3>MAKALE GÜNCELLE</h3>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}              <!--Login Formu ekranda get request yapıldığında göstermek için gerekli-->
+
+
+<form method = "POST" >
+   
+    {{ render_field(form.title  , class = "form-control") }}
+    {{ render_field(form.content , class = "form-control" ) }}
+    
+    <button type="submit" class="btn btn-info">MAKALE GÜNCELLE</button> 
+</form>
+{% endblock  %}

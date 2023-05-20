@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block all  %}
+
+<h3><i><b>GİRİŞ YAP</h3></i></b>
+<hr>
+
+{% from "includes/formhelpers.html" import render_field %}              <!--Login Formu ekranda get request yapıldığında göstermek için gerekli-->
+
+
+<form method = "POST" >
+   
+    {{ render_field(form.username ) }}
+    {{ render_field(form.password ) }}
+    
+    <button type="submit" class="btn btn-info">Giriş Yap</button> 
+</form>
+{% endblock  %}
